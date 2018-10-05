@@ -1,0 +1,12 @@
+<article class="message is-grey">
+  <div class="message-header">
+    <%= comment.commenter %>
+    <%= link_to '', [comment.article, comment], method: :delete,
+                class: 'delete',
+                'aria-label': 'delete',
+                data: { confirm: 'Are you sure?' } %>
+  </div>
+  <div class="message-body">
+    <%= comment.body %>
+  </div>
+</article>

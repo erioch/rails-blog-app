@@ -1,0 +1,19 @@
+<%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
+  <div class="field">
+    <%= form.label :commenter, class: 'label' %>
+    <div class="control">
+      <%= form.text_field :commenter, class: 'input' %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :body, class: 'label' %>
+    <div class="control">
+      <%= form.text_area :body, class: 'textarea' %>
+    </div>
+  </div>
+
+  <div class="control">
+    <%= form.submit class: 'button is-success is-pulled-right' %>
+  </div>
+<% end %>

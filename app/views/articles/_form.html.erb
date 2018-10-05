@@ -1,0 +1,35 @@
+<%= form_with model: @article, local: true do |form| %>
+
+  <% if @article.errors.any? %>
+    <div id="error_explanation" class="notification is-danger">
+      <h2 class="subtitle">
+        <%= pluralize(@article.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title, class: 'label' %>
+    <div class="control">
+      <%= form.text_field :title, class: 'input' %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :text, class: 'label' %>
+    <div class="control">
+      <%= form.text_area :text, { class: 'textarea', style: 'min-height: 200px' } %>
+    </div>
+  </div>
+
+  <div class="control">
+    <%= form.submit class: 'button is-success is-pulled-right' %>
+  </div>
+
+<% end %>

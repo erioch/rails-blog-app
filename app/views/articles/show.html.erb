@@ -1,0 +1,21 @@
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      <strong>Title:</strong>&nbsp;<%= @article.title %>
+    </p>
+  </header>
+  <div class="card-content">
+    <%= simple_format(@article.text, class: 'content has-text-justified', wrapper_tag: 'div') %>
+  </div>
+  <footer class="card-footer">
+    <%= link_to 'Edit', edit_article_path(@article), class: 'card-footer-item' %>
+    <%= link_to 'Back', articles_path, class: 'card-footer-item' %>
+  </footer>
+</div>
+
+<br>
+<h2 class="subtitle">Comments</h2>
+<%= render @article.comments %>
+
+<h2 class="subtitle">Add a comment:</h2>
+<%= render 'comments/form' %>

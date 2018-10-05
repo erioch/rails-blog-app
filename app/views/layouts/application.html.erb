@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+  </head>
+
+  <body>
+    <section class="hero is-primary">
+      <div class="hero-head">
+        <nav class="navbar">
+          <div class="container">
+            <div class="navbar-brand">
+              <%= link_to 'Blog', welcome_index_path, class: 'navbar-item' %>
+            </div>
+            <div class="navbar-menu">
+              <div class="navbar-end">
+                <%= link_to 'Articles', articles_path, class: 'navbar-item' %>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </section>
+
+    <section class="section" id="main">
+      <div class="container">
+        <div class="columns is-mobile is-centered">
+          <div class="column is-half">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          Blog by<strong> Marc Calor</strong>. A <a href="https://guides.rubyonrails.org/getting_started.html" target="_blank">ruby on rails</a> application playground.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

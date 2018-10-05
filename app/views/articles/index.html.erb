@@ -1,0 +1,36 @@
+<h1 class="title">Listing articles</h1>
+
+<div class="is-clearfix">
+  <%= link_to 'New article', new_article_path, class: 'button is-primary is-pulled-right' %>
+</div>
+
+<br>
+<br>
+
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th style="width: 450px">Text</th>
+      <th>Options</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <td><%= article.title %></td>
+        <td>
+          <%= simple_format(article.text, class: 'content has-text-justified', wrapper_tag: 'div') %>
+        </td>
+        <td class="has-text-right">
+          <%= link_to 'Show', article_path(article) %><br>
+          <%= link_to 'Edit', edit_article_path(article) %><br>
+          <%= link_to 'Destroy', article_path(article),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
